@@ -1,0 +1,44 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    font-family: sans-serif;
+    background-image: linear-gradient(green,lightgreen);
+    
+}
+.child1{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 20px;
+    /* background-color:yellow; */
+}
+.child{
+    width: 180px;
+    height: 50px;
+    /* text-align: center; */
+    font-size: 15px;
+    padding-top: 20px;
+    /* background-color: yellow; */
+}
+.child4{
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+button{
+    width: 140px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: white;
+    /* padding-top: 10px; */
+}
+button:hover{
+    background-color: gold;
+}
