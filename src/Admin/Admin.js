@@ -6,7 +6,7 @@ function Admin() {
 
   const handleLogout = () => {
     // Perform logout actions (e.g., clearing tokens)
-    navigate('/signin'); // Navigate to the login page
+    navigate('/'); // Navigate to the login page
   };
   return (
     <div>

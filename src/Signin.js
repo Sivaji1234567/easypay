@@ -6,7 +6,7 @@ function Signin() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate('/employee'); 
+    navigate('/admin'); 
   };
 
   return (

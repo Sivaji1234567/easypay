@@ -23,13 +23,13 @@ import ManageBenefits from './Processor/ManageBenefits';
 import ProcessPayments from './Processor/ProcessPayments'
 import PrviewPaystubs from './Processor/PrviewPaystubs';
 import PrRequestLeave from './Processor/PrRequestLeave';
+
 function App() {
   return (
     <Router>
-      {/* <Employee /> */}
-       {/* <Admin/> */}
-      <Processor/>
-{/* <Signin/> */}
+      {/* <Employee />
+       <Admin/>
+      <Processor/> */}
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/employee" element={<Employee />} />
@@ -37,7 +37,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/request-leave" element={<RequestLeave />} />
         <Route path="/view-paystubs" element={<ViewPaystubs />} />
-        <Route path="/signin" element={<Signin/>} />
+        <Route path="/" element={<Signin/>} />
         {/*  */}
         {/* Admin routes */}
         <Route path="/Adminhome" element={<AdminHome />} />
@@ -50,7 +50,9 @@ function App() {
         <Route path="/Admin-leave" element={<AdRequestLeave />} />
         {/*  */}
         {/* processor routes */}
+
         <Route path="/processorhome" element={<ProHome />} />
+        <Route path="/processor" element={<Processor />} />
         <Route path="/calculate-payroll" element={<CalculatePayroll/>} />
         <Route path="/verify-payroll"   element={<VerifyPayroll />}/>
         <Route path="/manage-benefits" element={<ManageBenefits />} />
