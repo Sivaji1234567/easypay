@@ -1,29 +1,60 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Employee.css';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Employee.css"; // You can style the navbar here
+import RequestLeave from "./RequestLeave";
+import ViewPaystubs from "./ViewPaystubs";
+import Home from "./Home";
+import Profile from "./Profile";
 function Employee() {
-  const navigate = useNavigate();
+  // State to track the active component
+  const [activeComponent, setActiveComponent] = useState("home");
+  const navigate=useNavigate();
+  const handleLogout=()=>{
+    console.log("hello");
+   navigate('/');
+  }
 
-  const handleLogout = () => {
-    // Perform logout actions (e.g., clearing tokens)
-    navigate('/'); // Navigate to the login page
+  // Function to render the selected component
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "home":
+        return <Home/>;
+      case "Profile":
+        return <Profile />;
+      case "request":
+        return <RequestLeave />;
+      case "paystubs":
+      return <ViewPaystubs/>;
+      default:
+        return <div>Select an option from the sidebar</div>;
+    }
   };
 
   return (
-    <div> 
-      <h1 style={{textAlign:"center"}}>Employee Management</h1>
-      <div className='nav'>
-        <div className='child'><Link  style={{color:"white"}}to="/home">HOME</Link></div>
-        <div className='child'><Link style={{color:"white"}}to="/profile">PROFILE</Link></div>
-        <div className='child'><Link style={{color:"white"}}to="/request-leave">REQUEST LEAVE</Link></div>
-        <div className='child'><Link style={{color:"white"}}to="/view-paystubs">VIEW PAYSTUBS</Link></div>
-        <div className='gap'></div>
-        <div className='child4'>
-          <button onClick={handleLogout}>LOGOUT</button>
-        </div>
+    <>
+    <div className="head"> 
+      <div><h1>Employee Management</h1></div>
+      <div className="gap"></div>
+    <div className="child2"><button className="btn" onClick={handleLogout}>Logout</button></div>
+    </div>
+   
+    <div className="app">
+      {/* Sidebar Navbar */}
+      <div className="sidebar">
+        <ul>
+          <li onClick={() => setActiveComponent("home")}>Home</li>
+          <li onClick={() => setActiveComponent("Profile")}>Profile</li>
+          <li onClick={() => setActiveComponent("request")}>RequestLeave</li>
+          <li onClick={() => setActiveComponent("paystubs")}>ViewPaystubs</li>
+        </ul>
+      </div>
+
+      {/* Main content area */}
+      <div className="main-content">
+        {renderComponent()}
       </div>
     </div>
+    </>
   );
 }
 
