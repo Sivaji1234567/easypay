@@ -1,30 +1,75 @@
-import React from 'react'
-import './Admin.css'
-import { Link ,useNavigate} from 'react-router-dom';
-function Admin() {
-  const navigate = useNavigate();
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Admin.css"; // You can style the navbar here
+import AdRequestLeave from "./AdRequestLeave";
+import AdviewPaystubs from "./AdviewPaystubs";
+import AdminHome from "./AdminHome";
+import ComplianceReports from "./ComplianceReports";
+import ManageEmployee from "./ManageEmployee"
+import ManageUser from "./ManageUser"
+import PayrollPolicies from "./PayrollPolicies"
 
-  const handleLogout = () => {
-    // Perform logout actions (e.g., clearing tokens)
-    navigate('/'); // Navigate to the login page
+function Employee() {
+  // State to track the active component
+  const [activeComponent, setActiveComponent] = useState("home");
+  const navigate=useNavigate();
+  const handleLogout=()=>{
+    console.log("hello");
+   navigate('/');
+  }
+
+  // Function to render the selected component
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "home":
+        return <AdminHome/>;
+      case "request":
+        return <AdRequestLeave />;
+      case "reports":
+        return <ComplianceReports/>;
+      case "paystubs":
+      return <AdviewPaystubs/>;
+      case "manage_employee":
+      return <ManageEmployee/>;
+      case "manage_user":
+      return <ManageUser/>;
+      case "payroll_policies":
+      return <PayrollPolicies/>;
+      default:
+        return <div>Select an option from the sidebar</div>;
+    }
   };
+
   return (
-    <div>
-      <div className='nav'>
-      <div className='child1'><Link to="/Adminhome">HOME</Link></div>
-        <div className='child'><Link to="/manage-user">MANAGE USER</Link></div>
-        <div className='child'><Link to="/payroll-policies">PAYROLL POLICIES</Link></div>
-        <div className='child'><Link to="/payroll">PAYROLL</Link></div>
-        <div className='child'><Link to="/compliance-reports">COMPLIANCE REPORTS</Link></div>
-        <div className='child'><Link to="/manage-employee">MANAGE EMPLOYEE</Link></div>
-        <div className='child'><Link to="/Admin-paystubs">VIEW PAYSTUBS</Link></div>
-        <div className='child'><Link to="/Admin-leave">REQUEST LEAVE</Link></div>
-        <div className='child4'>
-          <button onClick={handleLogout}>LOGOUT</button>
-        </div>
+    <>
+    <div className="head"> 
+      <div><h1>Admin Management</h1></div>
+      <div className="gap"></div>
+    <div className="child2"><button className="btn" onClick={handleLogout}>Logout</button></div>
+    </div>
+   
+    <div className="app">
+      {/* Sidebar Navbar */}
+      <div className="sidebar">
+        <ul>
+          <li onClick={() => setActiveComponent("home")}>Home</li>
+          <li onClick={() => setActiveComponent("request")}>RequestLeave</li>
+          <li onClick={() => setActiveComponent("paystubs")}>ViewPaystubs</li>
+          <li onClick={() => setActiveComponent("reports")}>ComplianceReports</li>
+          <li onClick={() => setActiveComponent("manage_employee")}>ManageEmployee</li>
+          <li onClick={() => setActiveComponent("manage_user")}>ManageUser</li>
+          <li onClick={() => setActiveComponent("payroll_policies")}>PayrollPolicies</li>
+         
+        </ul>
+      </div>
+
+      {/* Main content area */}
+      <div className="main-content">
+        {renderComponent()}
       </div>
     </div>
-  )
+    </>
+  );
 }
 
-export default Admin;
+export default Employee;
