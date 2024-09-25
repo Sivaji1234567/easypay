@@ -27,9 +27,10 @@ import PrRequestLeave from './Processor/PrRequestLeave';
 function App() {
   return (
     <Router>
-      {/* <Employee />
-       <Admin/>
+      {/* <Signin /> */}
+       {/* <Admin/>
       <Processor/> */}
+      {/* <Employee/> */}
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/employee" element={<Employee />} />

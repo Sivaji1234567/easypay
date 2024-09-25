@@ -1,39 +1,53 @@
-.nav{
+.app {
+    display: flex;
+    height: 88vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    cursor: pointer;
+    /* background-color: white; */
+    /* padding-bottom: 10px; */
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #444;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  .head{
     display: flex;
     flex-direction: row;
-    background-color: blue;
-    font-family: sans-serif;
-    background-image: linear-gradient(green,lightgreen);
+    background-color: blue
+  }
+  .child2{
+    /* background-color: #f4f4f4; */
+    padding-top: 15px;
     
-}
-.child{
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    font-size: 18px;
-    padding-top: 20px;
-}
-.child4{
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    font-size: 18px;
-    padding-top: 10px;
-}
-.gap{
-    width: 500px;
-    height: 50px;
-    /* background-color: aliceblue; */
-}
-button{
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    font-size: 15px;
-    border-radius: 5px;
-    background-color: white;
+  }
+  .btn{
+    background-color: red;
+    border-radius: 25px;
     /* padding-top: 10px; */
-}
-button:hover{
-    background-color: gold;
-}
+  }
+  .gap{
+    width: 950px;
+  }
