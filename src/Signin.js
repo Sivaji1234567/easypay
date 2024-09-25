@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Signin.css'
 import { useNavigate } from 'react-router-dom';
 
 function Signin() {
+  const [email,setEmail]=useState('');
+  const [user,setUser]=useState('');
   const navigate = useNavigate();
 
   const handleLogin = () => {
